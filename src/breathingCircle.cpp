@@ -17,6 +17,9 @@ breathingCircle::breathingCircle() {
    speed = ofRandom(1, 10) / 10;
    intensity = ofRandom(10, 100) / 100;
 //   intensity = 1.;
+//   lineWidth = ofRandom(1, 5);
+   lineWidth = 1;
+   
 }
 
 void breathingCircle::update(int target_x, int target_y) {
@@ -44,6 +47,7 @@ void breathingCircle::draw() {
 //   ofSetColor(intensity*255, 0, 0);
    ofSetColor(intensity*255, intensity*255, intensity*255);
    ofNoFill();
+   ofSetLineWidth(lineWidth);
    ofCircle(posX, posY, radius);
-   //ofRectangle(posX - radius/2 , posY - radius/2, radius, radius);
+   //ofRect(posX - radius/2 , posY - radius/2, radius, radius);
 }

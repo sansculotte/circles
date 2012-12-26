@@ -4,6 +4,7 @@
 #include "breathingCircle.h"
 
 #define NUM_CIRCLES 2666
+#define SAVE_PATH "/tmp"
 
 class testApp : public ofBaseApp{
 	public:
@@ -26,4 +27,7 @@ class testApp : public ofBaseApp{
       bool closeEnough(int index, int pos_x, int pos_y, float tolerance);
 
       breathingCircle circle[NUM_CIRCLES];
+
+   private:
+      bool record;
 };

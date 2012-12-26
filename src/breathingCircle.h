@@ -15,6 +15,7 @@ class breathingCircle{
       int size;
       int posX;
       int posY;
+      int lineWidth;
 
       float intensity;
       float speed;
