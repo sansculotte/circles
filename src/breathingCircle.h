@@ -1,5 +1,8 @@
 #ifndef _BREATHING_CIRLCE
 #define _BREATHING_CIRLCE
+
+#define PHI 1.6149
+
 #include "ofMain.h"
 
 class breathingCircle{

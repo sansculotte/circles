@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "breathingCircle.h"
 
-#define NUM_CIRCLES 2666
+#define NUM_CIRCLES 2000 
 #define SAVE_PATH "/tmp"
 
 class testApp : public ofBaseApp{

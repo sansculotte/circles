@@ -6,6 +6,7 @@ void testApp::setup(){
    ofBackground(0);
    ofSetFrameRate(60);
    ofSetWindowTitle("TESTfixx");
+//   ofSetWindowDimension(1280, 720);
    record = false;
 //   for(int x=0; x<NUM_CIRCLES; x++) {
 //      circle[x] = new breathingCircle();
@@ -29,6 +30,12 @@ void testApp::update(){
          for (j=0; j<NUM_CIRCLES && ! haveTarget; j++) {
             if(i!=j) {
                haveTarget = closeEnough(i, circle[j].posX, circle[j].posY, circle[j].size);
+               if(abs(circle[j].posX-circle[i].posX)<10 && abs(circle[j].posX-circle[i].posX)<10) {
+                  circle[i].posX=ofRandom(0, ofGetWidth());
+                  circle[i].posY=ofRandom(0, ofGetHeight());
+               }
+               x=circle[j].posX;
+               y=circle[j].posY;
             }
          }
       }
@@ -36,7 +43,7 @@ void testApp::update(){
       drift_y = 0;
 
 //      circle[i].update(x, y);
-      circle[i].update(circle[j].posX + x + drift_x, circle[j].posY + y + drift_y);
+      circle[i].update( x + drift_x, y + drift_y);
 //      circle[i].update(ofGetWidth()/2, ofGetHeight()/2);
 //      circle[i].update(ofGetMouseX(), ofGetMouseY());
 

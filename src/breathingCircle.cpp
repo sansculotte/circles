@@ -15,10 +15,10 @@ breathingCircle::breathingCircle() {
    posY = ofRandom(0, ofGetHeight()); 
    size = ofRandom(20, 150) + pow(2, ofRandom(0, 8));
    speed = ofRandom(1, 10) / 10;
-   intensity = ofRandom(10, 100) / 100;
+   intensity = pow(ofRandom(0, 100) / 100,2);
 //   intensity = 1.;
-//   lineWidth = ofRandom(1, 5);
-   lineWidth = 1;
+   lineWidth = ofRandom(1, 3);
+ //  lineWidth = 1;
    
 }
 
@@ -32,15 +32,15 @@ void breathingCircle::update(int target_x, int target_y) {
 //   int deltaY = target_y - posY;
    float target;
    float current;
-   target = radius / 10000.;
+   target = size / 10000.;
    current = 1. - target;
 //   posX += (deltaX > 0 ? 1 : -1) * abs(target_x - posX) * radius / 5000;
 //   posY += (deltaY > 0 ? 1 : -1) * abs(target_y - posY) * radius / 5000;
-   posX = posX * current + target_x * target + 2;
-   posY = posY * current + target_y * target + 2;
+   posX = posX * current + target_x * target + 1;
+   posY = posY * current + target_y * target + 1;
 
-   posX = posX % (ofGetWidth()+1);
-   posY = posY % (ofGetHeight()+1);
+   posX = posX % ofGetWidth();
+   posY = posY % ofGetHeight();
 }
 
 void breathingCircle::draw() {
@@ -49,5 +49,5 @@ void breathingCircle::draw() {
    ofNoFill();
    ofSetLineWidth(lineWidth);
    ofCircle(posX, posY, radius);
-   //ofRect(posX - radius/2 , posY - radius/2, radius, radius);
+//   ofRect(posX - radius/2 , posY - radius/2, PHI*radius, radius);
 }
