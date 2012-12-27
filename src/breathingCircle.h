@@ -1,7 +1,8 @@
 #ifndef _BREATHING_CIRLCE
 #define _BREATHING_CIRLCE
 
-#define PHI 1.6149
+#define PHI 1.618033
+#define _2PI 6.28318530 
 
 #include "ofMain.h"
 

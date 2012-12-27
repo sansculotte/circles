@@ -32,7 +32,11 @@ void breathingCircle::update(int target_x, int target_y) {
 //   int deltaY = target_y - posY;
    float target;
    float current;
+#ifdef SPEED_FROM_SIZE
    target = size / 10000.;
+#else
+   target = radius / 10000.; // that mekaes for weird movements
+#endif
    current = 1. - target;
 //   posX += (deltaX > 0 ? 1 : -1) * abs(target_x - posX) * radius / 5000;
 //   posY += (deltaY > 0 ? 1 : -1) * abs(target_y - posY) * radius / 5000;
@@ -47,7 +51,18 @@ void breathingCircle::draw() {
 //   ofSetColor(intensity*255, 0, 0);
    ofSetColor(intensity*255, intensity*255, intensity*255);
    ofNoFill();
-   ofSetLineWidth(lineWidth);
+//   ofFill();
+//   ofSetLineWidth(lineWidth);
+/* does not seem to work like that ?
+//   ofSetPolyMode(OF_POLY_WINDING_NONZERO);
+   ofSetPolyMode(OF_POLY_WINDING_ODD); // this is the normal mode
+   ofBeginShape();
+      for(int i=0; i<6; i++) {
+         ofVertex(posX + radius * cos(_2PI * i), posY + radius * sin(_2PI * i));
+      }
+   ofEndShape(OF_CLOSE);
+*/
+   ofSetCircleResolution(6);
    ofCircle(posX, posY, radius);
 //   ofRect(posX - radius/2 , posY - radius/2, PHI*radius, radius);
 }

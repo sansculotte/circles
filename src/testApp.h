@@ -5,6 +5,8 @@
 
 #define NUM_CIRCLES 2000 
 #define SAVE_PATH "/tmp"
+#define SPEED_FROM_SIZE
+#define OSC_CONTROL
 
 class testApp : public ofBaseApp{
 	public:

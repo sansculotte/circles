@@ -30,10 +30,12 @@ void testApp::update(){
          for (j=0; j<NUM_CIRCLES && ! haveTarget; j++) {
             if(i!=j) {
                haveTarget = closeEnough(i, circle[j].posX, circle[j].posY, circle[j].size);
+#ifndef SPEED_FROM_SIZE 
                if(abs(circle[j].posX-circle[i].posX)<10 && abs(circle[j].posX-circle[i].posX)<10) {
                   circle[i].posX=ofRandom(0, ofGetWidth());
                   circle[i].posY=ofRandom(0, ofGetHeight());
                }
+#endif
                x=circle[j].posX;
                y=circle[j].posY;
             }
