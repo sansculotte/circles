@@ -5,22 +5,22 @@
 
 #include "ofMain.h"
 
-class breathingCircle{
-   public:
+struct breathingCircle{
 
-      breathingCircle();
-      breathingCircle(int pos_x, int pos_y);
+    breathingCircle();
+    breathingCircle(int pos_x, int pos_y, int resolution);
 
-      void update(int target_x, int target_y);
-      void draw();
+    void update(int target_x, int target_y);
+    void draw();
 
-      int radius;
-      int size;
-      int posX;
-      int posY;
-      int lineWidth;
+    int radius;
+    int resolution;
+    int size;
+    int posX;
+    int posY;
+    int lineWidth;
 
-      float intensity;
-      float speed;
+    float intensity;
+    float speed;
 
 };

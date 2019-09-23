@@ -1,13 +1,14 @@
 #include "breathingCircle.h"
 
 
-breathingCircle::breathingCircle(int pos_x, int pos_y) {
+breathingCircle::breathingCircle(int pos_x, int pos_y, int resolution=6) {
    posX = pos_x % ofGetWidth();
    posY = pos_y % ofGetHeight();
    size = ofRandom(20, 120);
    speed = ofRandom(1, 10) / 10;
 //   intensity = ofRandom(10, 100) / 100;
    intensity = 1.;
+   this->resolution = resolution;
 }
 
 // constructor without position provided
@@ -54,17 +55,7 @@ void breathingCircle::draw() {
    ofNoFill();
 //   ofFill();
    ofSetLineWidth(lineWidth);
-// does not seem to work like that ?
-/*
-   ofSetPolyMode(OF_POLY_WINDING_NONZERO);
-   ofSetPolyMode(OF_POLY_WINDING_ODD); // this is the normal mode
-   ofBeginShape();
-      for(int i=0; i<6; i++) {
-         ofVertex(posX + radius * cos(_2PI * i), posY + radius * sin(_2PI * i));
-      }
-   ofEndShape(OF_CLOSE);
-*/
-   ofSetCircleResolution(6);
-   ofCircle(posX, posY, radius);
+   ofSetCircleResolution(resolution);
+   ofDrawCircle(posX, posY, radius);
 //   ofRect(posX - radius/2 , posY - radius/2, PHI*radius, radius);
 }

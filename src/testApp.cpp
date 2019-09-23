@@ -5,11 +5,10 @@ void testApp::setup(){
    ofEnableSmoothing();
    ofBackground(0);
    ofSetFrameRate(60);
-   ofSetWindowTitle("TESTfixx");
-//   ofSetWindowDimension(1280, 720);
-//   for(int x=0; x<NUM_CIRCLES; x++) {
-//      circle[x] = new breathingCircle();
-//   }
+   ofSetWindowTitle("circles");
+   for(int x=0; x<numCircles; x++) {
+      circle[x].resolution = resolution;
+   }
 }
 
 //--------------------------------------------------------------
@@ -17,7 +16,7 @@ void testApp::update(){
 
    int i, j, x, y, drift_x, drift_y;
 
-   for(i=0; i<NUM_CIRCLES; i++) {
+   for(i=0; i<numCircles; i++) {
       x=0;
       y=0;
       // find next biggest
@@ -26,17 +25,17 @@ void testApp::update(){
          x = ofRandom(0, circle[i].size) - circle[i].size / 2; 
          y = ofRandom(0, circle[i].size) - circle[i].size / 2; 
       } else {
-         for (j=0; j<NUM_CIRCLES && ! haveTarget; j++) {
+         for (j=0; j<numCircles && ! haveTarget; j++) {
             if(i != j) {
                haveTarget = closeEnough(i, circle[j].posX, circle[j].posY, circle[j].size);
 #ifndef SPEED_FROM_SIZE 
                if(abs(circle[j].posX-circle[i].posX)<10 && abs(circle[j].posX-circle[i].posX)<10) {
-                  circle[i].posX=ofRandom(0, ofGetWidth());
-                  circle[i].posY=ofRandom(0, ofGetHeight());
+                  circle[i].posX = ofRandom(0, ofGetWidth());
+                  circle[i].posY = ofRandom(0, ofGetHeight());
                }
 #endif
-               x=circle[j].posX;
-               y=circle[j].posY;
+               x = circle[j].posX;
+               y = circle[j].posY;
             }
          }
       }
@@ -54,7 +53,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
    char fileName[36];
-   for(int x=0; x<NUM_CIRCLES; x++) {
+   for(int x=0; x<numCircles; x++) {
       circle[x].draw();
    }
    if(record) {
@@ -66,7 +65,7 @@ void testApp::draw(){
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
    if(key == 32) {
-      for(int i=0; i<NUM_CIRCLES; i++) {
+      for(int i=0; i<numCircles; i++) {
          circle[i].posX = ofRandom(0, ofGetWidth());
          circle[i].posY = ofRandom(0, ofGetWidth());
       }
