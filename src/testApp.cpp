@@ -7,7 +7,6 @@ void testApp::setup(){
    ofSetFrameRate(60);
    ofSetWindowTitle("TESTfixx");
 //   ofSetWindowDimension(1280, 720);
-   record = false;
 //   for(int x=0; x<NUM_CIRCLES; x++) {
 //      circle[x] = new breathingCircle();
 //   }
@@ -22,13 +21,13 @@ void testApp::update(){
       x=0;
       y=0;
       // find next biggest
-      bool haveTarget=false;
+      bool haveTarget = false;
       if((int) ofRandom(1, 10) == 5) {
          x = ofRandom(0, circle[i].size) - circle[i].size / 2; 
          y = ofRandom(0, circle[i].size) - circle[i].size / 2; 
       } else {
          for (j=0; j<NUM_CIRCLES && ! haveTarget; j++) {
-            if(i!=j) {
+            if(i != j) {
                haveTarget = closeEnough(i, circle[j].posX, circle[j].posY, circle[j].size);
 #ifndef SPEED_FROM_SIZE 
                if(abs(circle[j].posX-circle[i].posX)<10 && abs(circle[j].posX-circle[i].posX)<10) {

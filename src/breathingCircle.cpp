@@ -1,5 +1,6 @@
 #include "breathingCircle.h"
 
+
 breathingCircle::breathingCircle(int pos_x, int pos_y) {
    posX = pos_x % ofGetWidth();
    posY = pos_y % ofGetHeight();
@@ -11,15 +12,15 @@ breathingCircle::breathingCircle(int pos_x, int pos_y) {
 
 // constructor without position provided
 breathingCircle::breathingCircle() {
-   posX = ofRandom(0, ofGetWidth()); 
-   posY = ofRandom(0, ofGetHeight()); 
+   posX = ofRandom(0, ofGetWidth());
+   posY = ofRandom(0, ofGetHeight());
    size = ofRandom(20, 150) + pow(2, ofRandom(0, 8));
    speed = ofRandom(1, 10) / 10;
    intensity = pow(ofRandom(0, 100) / 100,2);
 //   intensity = 1.;
    lineWidth = ofRandom(1, 3);
  //  lineWidth = 1;
-   
+
 }
 
 void breathingCircle::update(int target_x, int target_y) {
@@ -35,7 +36,7 @@ void breathingCircle::update(int target_x, int target_y) {
 #ifdef SPEED_FROM_SIZE
    target = size / 10000.;
 #else
-   target = radius / 10000.; // that mekaes for weird movements
+   target = radius / 10000.; // that mekes for weird movements
 #endif
    current = 1. - target;
 //   posX += (deltaX > 0 ? 1 : -1) * abs(target_x - posX) * radius / 5000;
@@ -52,9 +53,10 @@ void breathingCircle::draw() {
    ofSetColor(intensity*255, intensity*255, intensity*255);
    ofNoFill();
 //   ofFill();
-//   ofSetLineWidth(lineWidth);
-/* does not seem to work like that ?
-//   ofSetPolyMode(OF_POLY_WINDING_NONZERO);
+   ofSetLineWidth(lineWidth);
+// does not seem to work like that ?
+/*
+   ofSetPolyMode(OF_POLY_WINDING_NONZERO);
    ofSetPolyMode(OF_POLY_WINDING_ODD); // this is the normal mode
    ofBeginShape();
       for(int i=0; i<6; i++) {

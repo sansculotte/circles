@@ -1,5 +1,4 @@
-#ifndef _BREATHING_CIRLCE
-#define _BREATHING_CIRLCE
+#pragma once
 
 #define PHI 1.618033
 #define _2PI 6.28318530 
@@ -25,5 +24,3 @@ class breathingCircle{
       float speed;
 
 };
-
-#endif
