@@ -5,8 +5,8 @@
 
 #define NUM_CIRCLES 2000
 #define SAVE_PATH "/tmp"
-#define SPEED_FROM_SIZE
 #define OSC_CONTROL
+#define SPEED_FROM_SIZE
 
 struct testApp : public ofBaseApp {
     int radius;
@@ -32,5 +32,6 @@ struct testApp : public ofBaseApp {
     bool record;
     int resolution;
     int numCircles;
+    bool fill;
 
 };

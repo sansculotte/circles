@@ -12,8 +12,9 @@ int main(int argc, char *argv[]) {
     int numCircles = NUM_CIRCLES;
     bool record = false;
     bool fullscreen = false;
+    bool fill = false;
 
-    while((opt = getopt(argc, argv, "w:h:n:R:rf")) != -1) {
+    while((opt = getopt(argc, argv, "w:h:n:R:rfF")) != -1) {
         switch(opt) {
             case 'w':
                 width = atoi(optarg);
@@ -35,6 +36,9 @@ int main(int argc, char *argv[]) {
             case 'f':
                 fullscreen = true;
                 break;
+            case 'F':
+                fill = true;
+                break;
         }
     }
 
@@ -45,5 +49,6 @@ int main(int argc, char *argv[]) {
     app->record = record;
     app->resolution = resolution;
     app->numCircles = numCircles;
+    app->fill = fill;
 	ofRunApp(app); // start the app
 }

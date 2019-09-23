@@ -7,7 +7,7 @@ void testApp::setup(){
    ofSetFrameRate(60);
    ofSetWindowTitle("circles");
    for(int x=0; x<numCircles; x++) {
-      circle[x].resolution = resolution;
+      circle[x].setup(this->resolution, this->fill);
    }
 }
 
@@ -43,7 +43,7 @@ void testApp::update(){
       drift_y = 0;
 
 //      circle[i].update(x, y);
-      circle[i].update( x + drift_x, y + drift_y);
+      circle[i].update(x + drift_x, y + drift_y);
 //      circle[i].update(ofGetWidth()/2, ofGetHeight()/2);
 //      circle[i].update(ofGetMouseX(), ofGetMouseY());
 

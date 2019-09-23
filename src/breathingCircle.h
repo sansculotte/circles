@@ -5,13 +5,15 @@
 
 #include "ofMain.h"
 
-struct breathingCircle{
+struct breathingCircle {
 
     breathingCircle();
-    breathingCircle(int pos_x, int pos_y, int resolution);
+    breathingCircle(int pos_x, int pos_y);
 
+    void setup(int resolution, bool fill);
     void update(int target_x, int target_y);
     void draw();
+    void drawCircle(); 
 
     int radius;
     int resolution;
@@ -22,5 +24,7 @@ struct breathingCircle{
 
     float intensity;
     float speed;
+    bool fill;
+    int alpha;
 
 };
