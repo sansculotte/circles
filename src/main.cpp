@@ -14,12 +14,12 @@ int main(int argc, char *argv[]) {
     bool fullscreen = false;
     bool fill = false;
 
-    while((opt = getopt(argc, argv, "w:h:n:R:rfF")) != -1) {
+    while((opt = getopt(argc, argv, "W:H:n:R:rfFh")) != -1) {
         switch(opt) {
-            case 'w':
+            case 'W':
                 width = atoi(optarg);
                 break;
-            case 'h':
+            case 'H':
                 height = atoi(optarg);
                 break;
             case 'n':
@@ -39,6 +39,14 @@ int main(int argc, char *argv[]) {
             case 'F':
                 fill = true;
                 break;
+            case 'h':
+                cout << "Animated \"breathing\" circles. adjustable\n";
+                cout << "-W width=1920 -H height=1080\n";
+                cout << "-n number of circles\n";
+                cout << "-R resolution=6\n";
+                cout << "-r record\n",
+                cout << "-f fullscreen\n";
+                exit(0);
         }
     }
 
