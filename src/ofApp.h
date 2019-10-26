@@ -8,7 +8,8 @@
 #define OSC_CONTROL
 #define SPEED_FROM_SIZE
 
-struct testApp : public ofBaseApp {
+struct ofApp : public ofBaseApp {
+
     int radius;
     void setup();
     void update();

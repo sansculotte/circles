@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include "ofMain.h"
-#include "testApp.h"
+#include "ofApp.h"
 
 //--------------------------------------------------------------
 int main(int argc, char *argv[]) {
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
 	// set width, height, mode (OF_WINDOW or OF_FULLSCREEN)
     ofSetupOpenGL(width, height, fullscreen ? OF_FULLSCREEN : OF_WINDOW);
 
-    testApp* app = new testApp();
+    ofApp* app = new ofApp();
     app->record = record;
     app->resolution = resolution;
     app->numCircles = numCircles;
