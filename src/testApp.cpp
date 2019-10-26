@@ -74,6 +74,8 @@ void testApp::keyPressed(int key){
       record = true;
    } else if(key == 'R') {
       record = false;
+   } else if(key == 'q' || key == 27) {
+      ofExit();
    }
 }
 
